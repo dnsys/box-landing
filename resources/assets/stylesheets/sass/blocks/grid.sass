@@ -1,0 +1,40 @@
+.container
+  max-width: 1152px
+  padding-left: 12px
+  padding-right: 12px
+  margin: 0 auto
+
+.row
+  margin-left: -12px
+  margin-right: -12px
+  +clearfix
+
+$col-count: 8
+$col-with: 100% / $col-count
+@for $i from 1 through $col-count
+  .column-#{$i}
+    float: left
+    padding-left: 12px
+    padding-right: 12px
+    width: $col-with * $i
+
+  .column-md-#{$i}
+
+
+  .column-sm-#{$i}
+
+
+  .column-xs-#{$i}
+
+
+@for $i from 0 through $col-count
+  .column-offset-left-#{$i}
+    margin-left: $col-with * $i
+
+@for $i from 0 through $col-count
+  .column-sm-offset-left-#{$i}
+
+
+@for $i from 1 through $col-count
+  .column-offset-right-#{$i}
+    margin-right: $col-with * $i

@@ -1,0 +1,30 @@
+.footer
+  background: url("../images/footer-bg.jpg") no-repeat
+  background-size: cover
+  background-position: top
+  &__inner
+    display: flex
+    justify-content: space-between
+    padding: 30px 0
+  &__left
+    display: flex
+    justify-content: flex-start
+  &__address
+    font-size: 16px
+  &__email
+    margin-left: 80px
+    a
+      font-size: 16px
+      color: $color-text-base
+      transition: all .3s
+      &:hover
+        text-decoration: none
+  &__phone
+    a
+      font-family: $pt-sans-bold
+      text-decoration: none
+      font-size: 21px
+      color: $color-text-base
+      transition: all .3s
+      &:hover
+        text-decoration: underline

@@ -1,2 +1,18 @@
 .calculator-section
   padding: 70px 0
+  &__inner
+    display: flex
+    justify-content: flex-start
+    +media-992
+      flex-direction: column
+      align-items: stretch
+  &__left
+    flex: 50%
+    flex-direction: column
+    display: flex
+    align-items: stretch
+  &__right
+    flex: 50%
+    display: flex
+    justify-content: center
+    align-items: center

@@ -1,25 +1,35 @@
 <section class="section">
     <div class="calculator-section">
         <div class="container">
-            <div class="row">
-                <div class="column-4">
+            <div class="calculator-section__inner">
+                <div class="calculator-section__left">
                     <h2>Стоимость услуг хранения</h2>
                     <p>
                         Укажите пожалуйста ниже необходимый Вам метраж и срок хранения, калькулятор автоматически посчитает ориентировочную стоимость аренды для хранения.
                     </p>
                     <div class="calculator">
-                        <div class="calculator__range-group">
+                        <div class="calculator__range-group calculator__range-group--square">
                             <label for="squareInput">Площадь</label>
                             <input type="text" id="squareInput" name="squareInput" value="" />
                         </div>
-                        <div class="calculator__range-group">
+                        <div class="calculator__range-group calculator__range-group--months">
                             <label for="timeRent">Время аренды в месяцах</label>
                             <input type="text" id="timeRent" name="timeRent" value="" />
                         </div>
                     </div>
                     <div class="calculator__output">
-                        <span class="square"></span> ₽
-                        <span class="time"></span>
+                        <span></span>₽
+                    </div>
+                    <div class="calculator__button-more">
+                        <a href="#" class="base-button-link" style="display: inline-block">Узнать о наличии</a>
+                    </div>
+                </div>
+                <div class="calculator-section__right">
+                    <div class="calculator__image-container">
+                        <div class="calculator__square-descr">
+                            <span>1m²</span>
+                        </div>
+                        <img src="./images/containers/1m.png" alt="" />
                     </div>
                 </div>
             </div>

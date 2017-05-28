@@ -6,13 +6,19 @@
     display: flex
     justify-content: space-between
     padding: 30px 0
+    +media-750
+      flex-direction: row-reverse
   &__left
     display: flex
     justify-content: flex-start
   &__address
     font-size: 16px
+    +media-750
+      display: none
   &__email
     margin-left: 80px
+    +media-951
+      margin-left: 8%
     a
       font-size: 16px
       color: $color-text-base

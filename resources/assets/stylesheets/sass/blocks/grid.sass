@@ -3,6 +3,12 @@
   padding-left: 12px
   padding-right: 12px
   margin: 0 auto
+  +media-1152
+    width: 951px
+  +media-951
+    width: 720px
+  +media-720
+    width: 100%
 
 .row
   margin-left: -12px
@@ -20,10 +26,12 @@ $col-with: 100% / $col-count
 
   .column-md-#{$i}
 
-
   .column-sm-#{$i}
-
-
+    +media-750
+      float: left
+      padding-left: 12px
+      padding-right: 12px
+      width: $col-with * $i
   .column-xs-#{$i}
 
 

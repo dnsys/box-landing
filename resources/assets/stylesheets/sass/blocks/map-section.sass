@@ -1,0 +1,29 @@
+.map-section
+  position: relative
+  width: 100%
+  height: 600px
+  clip-path: polygon(0% 0%, 100% 15%, 100% 100%, 0% 100%)
+  &__address-cloud
+    display: inline-block
+    position: absolute
+    top: 150px
+    right: 77px
+    background: url("../images/map-cloud.png") no-repeat
+    background-size: contain
+    width: 480px
+    height: 340px
+    z-index: 9
+    padding: 70px 0 70px 50px
+    font-size: 0
+    +media-750
+      display: none
+  &__address-cloud-description
+    width: 80%
+    font-size: 18px
+    line-height: 24px
+    display: inline-block
+    vertical-align: middle
+  &__address-cloud-icon
+    width: 20%
+    display: inline-block
+    vertical-align: middle

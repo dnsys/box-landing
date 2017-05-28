@@ -6,7 +6,12 @@ class Application{
         console.log('application start');
         document.addEventListener('DOMContentLoaded', () => {
              console.log('application ready');
-             this._calculatorInit();
+            this._initMap();
+            if($(window).width() > 750){
+                this._calculatorInit();
+            }else {
+
+            }
         })
     }
 
@@ -70,6 +75,29 @@ class Application{
                 $('.calculator__output span').text(sum);
             }
         });
+    }
+
+    _initMap() {
+        ymaps.ready(init);
+        function init(){
+            let myMap = new ymaps.Map("mapSection", {
+                    center: [55.76, 37.64],
+                    zoom: 11
+                }),
+                firstPlacemark = new ymaps.Placemark([55.76, 37.56], {}, {
+                    iconLayout: 'default#image',
+                    iconImageHref: '../images/placeholder.png',
+                    iconImageSize: [45, 64],
+                    iconImageOffset: [-3, -42]
+                });
+            myMap.geoObjects.add(firstPlacemark);
+            firstPlacemark.events.add('click', function () {
+                alert('О, событие!');
+            });
+            myMap.controls.remove('zoomControl');
+            myMap.controls.remove('searchControl');
+            myMap.controls.remove('geolocationControl');
+        }
     }
 }
 

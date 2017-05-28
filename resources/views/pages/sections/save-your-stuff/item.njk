@@ -3,11 +3,13 @@
         <div class="save-your-stuff__item-icon">
             {{ item.svgIcon | safe }}
         </div>
-        <div class="save-your-stuff__item-title">
-            {{ item.title }}
-        </div>
-        <div class="save-your-stuff__item-text">
-            {{ item.text | safe }}
+        <div class="save-your-stuff__description">
+            <div class="save-your-stuff__item-title">
+                {{ item.title }}
+            </div>
+            <div class="save-your-stuff__item-text">
+                {{ item.text | safe }}
+            </div>
         </div>
     </div>
 </div>

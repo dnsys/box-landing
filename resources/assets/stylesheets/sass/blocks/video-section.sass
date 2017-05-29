@@ -1,0 +1,28 @@
+.video-section
+  padding: 90px 0
+  background: url("../images/video-block-bg.png")
+  background-size: cover
+  background-position: top right
+  &__content
+    &--desktop
+      +media-750
+        display: none
+    &--mobile
+      display: none
+      +media-750
+        display: block
+.video-block
+  position: relative
+  height: 337px
+  width: 100%
+  background-size: cover
+  background-position: center
+  border-radius: 5px
+  &__play
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+  &__play-button
+    width: 70px
+    height: 70px

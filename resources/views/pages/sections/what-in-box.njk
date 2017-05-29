@@ -7,7 +7,35 @@
                     <img src="./images/what-in-box.png" style="max-width: 100%" alt="">
                 </div>
                 <div class="what-in-box__content what-in-box__content--mobile">
-
+                    {% set items = [
+                    {
+                        srcImage: './images/what-in-box/surfing.png',
+                        title: 'Спортивный<br/>инвентарь'
+                    },
+                    {
+                        srcImage: './images/what-in-box/sofa.png',
+                        title: 'Мебель'
+                    },
+                    {
+                        srcImage: './images/what-in-box/washing_machine.png',
+                        title: 'Бытовая техника'
+                    },
+                    {
+                        srcImage: './images/what-in-box/music_instruments.png',
+                        title: 'Музыкальные инструменты'
+                    },
+                    {
+                        srcImage: './images/what-in-box/tire.png',
+                        title: 'Автозапчасти'
+                    },
+                    {
+                        srcImage: './images/what-in-box/bags.png',
+                        title: 'Сумки и<br/>другие вещи'
+                    }
+                    ] %}
+                    {% for item in items %}
+                        {% include "pages/sections/what-in-box/mobile-item.njk" %}
+                    {% endfor %}
                 </div>
             </div>
         </div>

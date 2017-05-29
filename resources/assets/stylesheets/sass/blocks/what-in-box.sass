@@ -1,6 +1,27 @@
 .what-in-box
   padding: 70px 0 0
+  +media-750
+    padding: 70px 0
   &__content
     &--desktop
+      +media-750
+        display: none
     &--mobile
       display: none
+      font-size: 0
+      +media-750
+        display: block
+  &__item
+    text-align: center
+    display: inline-block
+    width: 50%
+    margin-bottom: 30px
+    +media-480
+      width: 100%
+  &__item-image
+    img
+      max-width: 75%
+  &__item-title
+    font-family: $roboto-regular
+    font-size: 24px
+    margin-top: 30px

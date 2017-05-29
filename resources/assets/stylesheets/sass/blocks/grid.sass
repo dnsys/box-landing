@@ -7,13 +7,18 @@
     width: 951px
   +media-951
     width: 720px
-  +media-720
+  +media-750
     width: 100%
+    padding-left: 5%
+    padding-right: 5%
 
 .row
   margin-left: -12px
   margin-right: -12px
   +clearfix
+  +media-750
+    margin-left: -5%
+    margin-right: -5%
 
 $col-count: 8
 $col-with: 100% / $col-count
@@ -25,14 +30,24 @@ $col-with: 100% / $col-count
     width: $col-with * $i
 
   .column-md-#{$i}
-
-  .column-sm-#{$i}
-    +media-750
+    +media-951
       float: left
       padding-left: 12px
       padding-right: 12px
       width: $col-with * $i
+
+  .column-sm-#{$i}
+    +media-750
+      float: left
+      padding-left: 5%
+      padding-right: 5%
+      width: $col-with * $i
   .column-xs-#{$i}
+    +media-480
+      float: left
+      padding-left: 5%
+      padding-right: 5%
+      width: $col-with * $i
 
 
 @for $i from 0 through $col-count

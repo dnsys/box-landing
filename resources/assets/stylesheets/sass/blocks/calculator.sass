@@ -17,6 +17,13 @@
     border-radius: 50%
   &__range-group
     margin-top: 45px
+    &--desktop
+      +media-750
+        display: none
+    &--mobile
+      display: none
+      +media-750
+        display: block
   &__output
     font-family: $ubuntu-bold
     font-size: 36px

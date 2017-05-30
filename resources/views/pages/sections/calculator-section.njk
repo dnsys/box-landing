@@ -8,13 +8,41 @@
                         Укажите пожалуйста ниже необходимый Вам метраж и срок хранения, калькулятор автоматически посчитает ориентировочную стоимость аренды для хранения.
                     </p>
                     <div class="calculator">
-                        <div class="calculator__range-group calculator__range-group--square">
+                        <div class="calculator__range-group calculator__range-group--desktop calculator__range-group--square">
                             <label for="squareInput">Площадь</label>
                             <input type="text" id="squareInput" name="squareInput" value="" />
                         </div>
-                        <div class="calculator__range-group calculator__range-group--months">
+                        <div class="calculator__range-group calculator__range-group--desktop calculator__range-group--months">
                             <label for="timeRent">Время аренды в месяцах</label>
                             <input type="text" id="timeRent" name="timeRent" value="" />
+                        </div>
+
+                        <div class="calculator__range-group calculator__range-group--mobile calculator__range-group--square">
+                            <label for="squareInputSelect">Площадь</label>
+                            <select id="squareInputSelect">
+                                <option value="0" selected="selected">1m²</option>
+                                <option value="1">6m²</option>
+                                <option value="2">9m²</option>
+                                <option value="3">12m²</option>
+                                <option value="4">35m²</option>
+                            </select>
+                        </div>
+                        <div class="calculator__range-group calculator__range-group--mobile calculator__range-group--months">
+                            <label for="timeRentSelect">Время аренды в месяцах</label>
+                            <select id="timeRentSelect">
+                                <option value="1" selected="selected">1 месяц</option>
+                                <option value="2">2 месяца</option>
+                                <option value="3">3 месяца</option>
+                                <option value="4">4 месяца</option>
+                                <option value="5">5 месяцев</option>
+                                <option value="6">6 месяцев</option>
+                                <option value="7">7 месяцев</option>
+                                <option value="8">8 месяцев</option>
+                                <option value="9">9 месяцев</option>
+                                <option value="10">10 месяцев</option>
+                                <option value="11">11 месяцев</option>
+                                <option value="12">12 месяцев</option>
+                            </select>
                         </div>
                     </div>
                     <div class="calculator__output">

@@ -1,0 +1,51 @@
+.photo-warehouses
+  +clearfix
+  &__wrapper
+    +clearfix
+  &__tabs
+    position: relative
+    width: 30%
+    float: left
+    border-top: 1px solid #8fdbf6
+    border-bottom: 1px solid #8fdbf6
+    border-left: 1px solid #8fdbf6
+    border-top-left-radius: 8px
+    border-bottom-left-radius: 8px
+    margin-right: -1px
+    z-index: 1
+    text-align: center
+  &__tabs-link
+    width: 100%
+    background: transparent
+    display: inline-block
+    border: none
+    padding: 17px 0px
+    border-bottom: 1px solid #8fdbf6
+    border-right: 1px solid #8fdbf6
+    transition: .2s all
+    &:hover
+      cursor: pointer
+      border-right: 1px solid #ffffff
+    &.last
+      border-bottom: none
+    &:focus
+      outline: none
+  &__tabs-content
+    display: block
+    position: relative
+    width: 70%
+    float: left
+    padding: 24px 24px
+    border: 1px solid #8fdbf6
+    border-radius: 0 8px 8px 8px
+    background: #ffffff
+    z-index: 0
+  &__tabs-content-slider
+    height: 408px
+    width: 100%
+  &__tabs-content-link
+    a
+      font-family: $pt-sans-bold
+      color: $color-button-base
+      &:hover
+        text-decoration: none

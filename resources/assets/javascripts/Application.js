@@ -1,19 +1,18 @@
 import $ from 'jquery';
 import ionRangeSlider from 'ion-rangeslider';
 import magnificPopup from 'magnific-popup';
+import selectize from 'selectize';
 
 class Application{
     constructor(){
         console.log('application start');
         document.addEventListener('DOMContentLoaded', () => {
-             console.log('application ready');
-             this._playPopupVideo();
+            console.log('application ready');
+            this._playPopupVideo();
             this._initMap();
-            if($(window).width() > 750){
-                this._calculatorInit();
-            }else {
-
-            }
+            this._calculatorInit();
+            this._initTabsSlider();
+            this._initMobileCalc();
         })
     }
 
@@ -79,6 +78,43 @@ class Application{
         });
     }
 
+    _initMobileCalc() {
+        let cost;
+        let month = $('#timeRentSelect option:selected').val();
+        let sum;
+        let $selectSquare = $('#squareInputSelect');
+        let $selectTime = $('#timeRentSelect');
+        let imgContainerSrc;
+        let imgContainer = $('.calculator__image-container img');
+        $selectSquare.selectize({
+            create: true,
+            dropdownParent: 'body',
+            onChange: function(value) {
+                switch(value){
+                    case "0": cost = 1000; imgContainerSrc = '1m'; break;
+                    case "1": cost = 2000; imgContainerSrc = '6m'; break;
+                    case "2": cost = 3000; imgContainerSrc = '9m'; break;
+                    case "3": cost = 4000; imgContainerSrc = '12m'; break;
+                    case "4": cost = 5000; imgContainerSrc = '35m'; break;
+                }
+                console.log(month);
+                sum = cost * month;
+                $('.calculator__output span').text(sum);
+                imgContainer.attr('src', './images/containers/'+imgContainerSrc+'.png');
+                console.log(cost);
+            }
+        });
+        $selectTime.selectize({
+            create: true,
+            dropdownParent: 'body',
+            onChange: function(value) {
+                month = parseInt(value);
+                sum = cost * month;
+                $('.calculator__output span').text(sum);
+            }
+        });
+    }
+
     _initMap() {
         ymaps.ready(init);
         function init(){
@@ -106,6 +142,10 @@ class Application{
         $('.video-block__play-popup').magnificPopup({
             type: 'iframe'
         });
+    }
+
+    _initTabsSlider() {
+
     }
 }
 

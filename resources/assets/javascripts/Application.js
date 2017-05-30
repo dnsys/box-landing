@@ -97,11 +97,12 @@ class Application{
                     case "3": cost = 4000; imgContainerSrc = '12m'; break;
                     case "4": cost = 5000; imgContainerSrc = '35m'; break;
                 }
-                console.log(month);
                 sum = cost * month;
                 $('.calculator__output span').text(sum);
                 imgContainer.attr('src', './images/containers/'+imgContainerSrc+'.png');
-                console.log(cost);
+                let descr = $('#squareInputSelect option:selected').text();
+                console.log(descr);
+                $('.calculator__square-descr span').text(descr);
             }
         });
         $selectTime.selectize({

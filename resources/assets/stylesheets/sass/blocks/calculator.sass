@@ -22,16 +22,27 @@
         display: none
     &--mobile
       display: none
+      margin-top: 20px
       +media-750
         display: block
+      .selectize-input
+        margin-top: 10px
+        border-radius: 0
+        border: 1px solid #8fdbf6
+        box-shadow: none
+        padding: 17px 8px
+        .item
+          font-size: 24px
+          font-family: $ubuntu-regular
+          vertical-align: middle
   &__output
     font-family: $ubuntu-bold
     font-size: 36px
     margin-top: 50px
     +media-750
       text-align: center
-      margin-top: 80px
-      margin-bottom: 80px
+      margin-top: 40px
+      margin-bottom: 40px
       font-size: 48px
   &__image-container
     //display: flex

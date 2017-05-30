@@ -1,11 +1,13 @@
 import $ from 'jquery';
 import ionRangeSlider from 'ion-rangeslider';
+import magnificPopup from 'magnific-popup';
 
 class Application{
     constructor(){
         console.log('application start');
         document.addEventListener('DOMContentLoaded', () => {
              console.log('application ready');
+             this._playPopupVideo();
             this._initMap();
             if($(window).width() > 750){
                 this._calculatorInit();
@@ -98,6 +100,12 @@ class Application{
             myMap.controls.remove('searchControl');
             myMap.controls.remove('geolocationControl');
         }
+    }
+
+    _playPopupVideo() {
+        $('.video-block__play-popup').magnificPopup({
+            type: 'iframe'
+        });
     }
 }
 

@@ -2,12 +2,15 @@ import $ from 'jquery';
 import ionRangeSlider from 'ion-rangeslider';
 import magnificPopup from 'magnific-popup';
 import selectize from 'selectize';
+import warehousesSlider from './views/warehousesSlider';
 
 class Application{
     constructor(){
         console.log('application start');
         document.addEventListener('DOMContentLoaded', () => {
             console.log('application ready');
+            new warehousesSlider();
+            this._initTriggerAnimation();
             this._playPopupVideo();
             this._initMap();
             this._calculatorInit();
@@ -146,7 +149,53 @@ class Application{
     }
 
     _initTabsSlider() {
+        let i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("photo-warehouses__tabs-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("photo-warehouses__tabs-link");
+        let activeTabContent = document.querySelector('.photo-warehouses__tabs-link.active').getAttribute('data-tab');
+        document.getElementById(activeTabContent).style.display="block";
+        [].forEach.call(tablinks, tab => {
+            tab.addEventListener('click', () =>
+                this._clickTab(tab, tabcontent, tablinks))
+        });
+    }
 
+    _clickTab(tab, tabcontent, tablinks) {
+        for (let i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        for (let i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove('active');
+        }
+        tab.classList.add('active');
+        let idTabContent = tab.getAttribute('data-tab');
+        document.getElementById(idTabContent).style.display='block';
+    }
+
+    _initTriggerAnimation() {
+        let $massAnimation = $('[data-animate]');
+        let $window = $(window);
+        $massAnimation.css('visibility', 'hidden');
+        //VIEWPORT TRIGGER
+        $window.on('scroll', function () {
+            $massAnimation.each(function () {
+                let $this = $(this);
+
+                if($this.data('isAnimate')) return;
+
+                if ( $window.scrollTop() + ($window.height() * 0.9 ) > $this.offset().top) {
+                    let animation = $this.data('animate');
+                    let delay = $this.data('delay');
+                    $this.css('animation-delay', delay + 's');
+                    $this.animateCss(animation);
+                    $this.css('visibility', '');
+                    $this.data('isAnimate', true)
+                }
+            });
+        }).trigger('scroll');
     }
 }
 

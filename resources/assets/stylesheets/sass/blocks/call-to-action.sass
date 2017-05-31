@@ -6,11 +6,16 @@
     margin-top: 60px
     display: inline-block
   &__phone
+    font-family: $ubuntu-bold
     display: inline-block
     color: #2c3e50
     text-decoration: none
     font-size: 36px
     width: 100%
     margin-top: 60px
+    +media-750
+      font-size: 48px
+    +media-480
+      font-size: 30px
     &:hover
       text-decoration: underline

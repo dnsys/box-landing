@@ -1,7 +1,8 @@
 .main-section
+  position: relative
   //height: 700px
-  background: url('../images/main-bg-build.png') no-repeat
-  background-position: top right
+  //background: url('../images/main-bg-build.png') no-repeat
+  //background-position: top right
   padding-top: 250px
   padding-bottom: 110px
   +media-1440
@@ -10,3 +11,12 @@
     margin-top: 45px
   &__button
     margin-top: 45px
+  &__image-build
+    position: absolute
+    top: 0
+    right: 0
+    background: url('../images/main-bg-build.png') no-repeat
+    background-position: top right
+    background-size: contain
+    width: 100%
+    height: 90%

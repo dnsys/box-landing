@@ -26,6 +26,7 @@
     "vinyl-ftp": "^0.6.0"
   },
   "dependencies": {
+    "animate.css": "^3.5.2",
     "babel-polyfill": "^6.23.0",
     "babelify": "^7.3.0",
     "browserify": "^14.1.0",
@@ -35,6 +36,7 @@
     "jquery": "^3.2.0",
     "magnific-popup": "^1.1.0",
     "node-reset-scss": "^1.0.1",
+    "owl.carousel": "^2.2.0",
     "rev-del": "^1.0.5",
     "selectize": "^0.12.4",
     "vinyl-buffer": "^1.0.0",

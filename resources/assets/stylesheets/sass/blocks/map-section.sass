@@ -16,14 +16,33 @@
     padding: 70px 0 70px 50px
     font-size: 0
     +media-750
-      display: none
+      position: relative
+      width: 100%
+      background: #ffffff
+      top: 0
+      right: 0
+      padding: 50px 11%
+      height: auto
+      //text-align: center
   &__address-cloud-description
     width: 80%
     font-size: 18px
     line-height: 24px
     display: inline-block
     vertical-align: middle
+    text-align: left
+    span
+      font-family: $pt-sans-bold
+    +media-750
+      width: auto
+      vertical-align: top
   &__address-cloud-icon
     width: 20%
     display: inline-block
     vertical-align: middle
+    +media-750
+      width: auto
+      margin-right: 20px
+    img
+      +media-750
+        height: 45px

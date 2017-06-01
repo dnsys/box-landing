@@ -3,19 +3,29 @@ import ionRangeSlider from 'ion-rangeslider';
 import magnificPopup from 'magnific-popup';
 import selectize from 'selectize';
 import warehousesSlider from './views/warehousesSlider';
+import MobileReviewsSlider from './views/MobileReviewsSlider';
+import anchorScroll from './vendor/anchor';
+
+$.fn.extend({
+    animateCss: function (animationName) {
+        let animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        this.addClass('animated ' + animationName).one(animationEnd, function() {
+            $(this).removeClass('animated ' + animationName);
+        });
+    }
+});
 
 class Application{
     constructor(){
-        console.log('application start');
         document.addEventListener('DOMContentLoaded', () => {
-            console.log('application ready');
             new warehousesSlider();
-            this._initTriggerAnimation();
+            new MobileReviewsSlider();
             this._playPopupVideo();
             this._initMap();
             this._calculatorInit();
             this._initTabsSlider();
             this._initMobileCalc();
+            this._initTriggerAnimation();
         })
     }
 
@@ -89,33 +99,31 @@ class Application{
         let $selectTime = $('#timeRentSelect');
         let imgContainerSrc;
         let imgContainer = $('.calculator__image-container img');
-        $selectSquare.selectize({
-            create: true,
-            dropdownParent: 'body',
-            onChange: function(value) {
-                switch(value){
-                    case "0": cost = 1000; imgContainerSrc = '1m'; break;
-                    case "1": cost = 2000; imgContainerSrc = '6m'; break;
-                    case "2": cost = 3000; imgContainerSrc = '9m'; break;
-                    case "3": cost = 4000; imgContainerSrc = '12m'; break;
-                    case "4": cost = 5000; imgContainerSrc = '35m'; break;
-                }
-                sum = cost * month;
-                $('.calculator__output span').text(sum);
-                imgContainer.attr('src', './images/containers/'+imgContainerSrc+'.png');
-                let descr = $('#squareInputSelect option:selected').text();
-                console.log(descr);
-                $('.calculator__square-descr span').text(descr);
+        let valueSquare = $selectSquare.find(":selected").val();
+        let valueTime = $selectTime.find(":selected").val();
+        $selectSquare.on('change', function () {
+            let $this = $(this);
+            console.log($this.find(":selected").val());
+            valueSquare = $this.find(":selected").val();
+            switch(valueSquare){
+                case "0": cost = 1000; imgContainerSrc = '1m'; break;
+                case "1": cost = 2000; imgContainerSrc = '6m'; break;
+                case "2": cost = 3000; imgContainerSrc = '9m'; break;
+                case "3": cost = 4000; imgContainerSrc = '12m'; break;
+                case "4": cost = 5000; imgContainerSrc = '35m'; break;
             }
+            sum = cost * valueTime;
+            imgContainer.attr('src', './images/containers/'+imgContainerSrc+'.png');
+            let descr = $('#squareInputSelect option:selected').text();
+            $('.calculator__square-descr span').text(descr);
+            $('.calculator__output span').text(sum);
         });
-        $selectTime.selectize({
-            create: true,
-            dropdownParent: 'body',
-            onChange: function(value) {
-                month = parseInt(value);
-                sum = cost * month;
-                $('.calculator__output span').text(sum);
-            }
+        $selectTime.on('change', function () {
+            let $this = $(this);
+            valueTime = $this.find(":selected").val();
+            sum = cost * valueTime;
+            imgContainer.attr('src', './images/containers/'+imgContainerSrc+'.png');
+            $('.calculator__output span').text(sum);
         });
     }
 
@@ -196,6 +204,13 @@ class Application{
                 }
             });
         }).trigger('scroll');
+    }
+
+    _initStylerSelect() {
+        let $selectSquare = $('#squareInputSelect');
+        let $selectTime = $('#timeRentSelect');
+        $selectSquare.styler();
+        $selectTime.styler();
     }
 }
 

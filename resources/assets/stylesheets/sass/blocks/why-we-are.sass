@@ -1,16 +1,27 @@
 .why-we-are
   padding: 150px 0 0
+  font-size: 0
   +media-750
     padding: 70px 0 0
   &__item
+    display: inline-block
+    width: 25%
+    vertical-align: top
     text-align: center
-    margin-bottom: 60px
-    +media-750
-      min-height: 242px
-      margin-bottom: 0
+    margin-bottom: 50px
+    transition: .3s all
+    +media-992
+      width: 33.3%
+    +media-800
+      width: 50%
+    +media-480
+      width: 100%
   &__item-icon
     height: 80px
   &__item-title
-    margin-top: 30px
+    font-size: 18px
+    color: #373737
+    padding-top: 35px
+    line-height: 23px
   &__svgImage
     fill: #4993de

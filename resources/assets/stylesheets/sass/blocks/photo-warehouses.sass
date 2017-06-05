@@ -8,6 +8,14 @@
   +clearfix
   &__wrapper
     +clearfix
+  &__tabs-section
+    &--desktop
+      +media-750
+        display: none
+    &--mobile
+      display: none
+      +media-750
+        display: block
   &__tabs
     position: relative
     width: 30%
@@ -21,8 +29,6 @@
     z-index: 1
     text-align: center
     overflow: hidden
-    +media-750
-      display: none
   &__tabs-link
     width: 100%
     background: #ffffff
@@ -51,8 +57,6 @@
     border-radius: 0 8px 8px 8px
     background: #ffffff
     z-index: 0
-    +media-750
-      display: none
   &__tabs-content
     animation: fadeEffect 1s
   &__tabs-content-slider-wrapper
@@ -67,6 +71,7 @@
     border-right: 1px solid #8fdbf6
     .owl-nav
       position: absolute
+      height: 50px
       top: 50%
       width: 100%
       transform: translateY(-50%)
@@ -88,6 +93,21 @@
       margin-top: 10px
       &:hover
         text-decoration: none
+  &__arrow
+    font-size: 50px
+    color: #8fdbf6
+
+  &__tabs-select
+    margin-bottom: 40px
+
+  &__mobile-tab-content
+    animation: fadeEffect 1s
+
+  &__mobile-slider
+    .owl-stage
+      max-height: 450px
+  &__mobile-tabs-wrapper
+    margin-top: 40px
 
 @-webkit-keyframes fadeEffect
   from

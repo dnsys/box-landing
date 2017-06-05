@@ -1,9 +1,10 @@
 import $ from 'jquery';
 import ionRangeSlider from 'ion-rangeslider';
 import magnificPopup from 'magnific-popup';
-import selectize from 'selectize';
-import warehousesSlider from './views/warehousesSlider';
+import select2 from 'select2';
+import WareHousesSlider from './views/warehousesSlider';
 import MobileReviewsSlider from './views/MobileReviewsSlider';
+import WareHousesSliderMobile from './views/WareHousesSliderMobile';
 import anchorScroll from './vendor/anchor';
 
 $.fn.extend({
@@ -18,12 +19,15 @@ $.fn.extend({
 class Application{
     constructor(){
         document.addEventListener('DOMContentLoaded', () => {
-            new warehousesSlider();
+            this._initStylerSelect();
+            new WareHousesSlider();
+            new WareHousesSliderMobile();
             new MobileReviewsSlider();
             this._playPopupVideo();
             this._initMap();
             this._calculatorInit();
             this._initTabsSlider();
+            this._initTabSliderMobile();
             this._initMobileCalc();
             this._initTriggerAnimation();
         })
@@ -183,6 +187,32 @@ class Application{
         document.getElementById(idTabContent).style.display='block';
     }
 
+    _initTabSliderMobile() {
+        let i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("photo-warehouses__mobile-tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("photo-warehouses__tabs-select");
+        let activeTabContent = document.querySelector(".photo-warehouses__tabs-select option:checked").value;
+        console.log(activeTabContent);
+        document.getElementById(activeTabContent).style.display="block";
+        [].forEach.call(tablinks, tab => {
+            tab.addEventListener('change', () =>
+                this._changeTabMobile(tab, tabcontent, tablinks))
+        });
+
+    }
+
+    _changeTabMobile(tab, tabcontent, tablinks){
+        for (let i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        let idTabContent = tab.value;
+        console.log(idTabContent);
+        document.getElementById(idTabContent).style.display='block';
+    }
+
     _initTriggerAnimation() {
         let $massAnimation = $('[data-animate]');
         let $window = $(window);
@@ -207,10 +237,10 @@ class Application{
     }
 
     _initStylerSelect() {
-        let $selectSquare = $('#squareInputSelect');
-        let $selectTime = $('#timeRentSelect');
-        $selectSquare.styler();
-        $selectTime.styler();
+        let $select = $('.custom-select');
+        $select.select2({
+            width: '100%'
+        });
     }
 }
 

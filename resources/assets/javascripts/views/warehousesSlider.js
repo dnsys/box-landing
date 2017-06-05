@@ -3,19 +3,20 @@ window.jQuery = $;
 window.$ = $;
 let owlCarousel = require('owl.carousel');
 
-class ReviewsBlock{
+class WareHousesSlider{
     constructor () {
         console.log('inside');
         $('.photo-warehouses__tabs-content-slider').owlCarousel({
             items:1,
             margin:10,
             nav:true,
+            loop: true,
             navText: [
-                "<i class='fa fa-chevron-left'></i>",
-                "<i class='fa fa-chevron-right'></i>"
+                '<i class="fa fa-angle-left photo-warehouses__arrow" aria-hidden="true"></i>',
+                '<i class="fa fa-angle-right photo-warehouses__arrow" aria-hidden="true"></i>'
             ],
             dots: false
         });
     }
 }
-export default ReviewsBlock;
+export default WareHousesSlider;

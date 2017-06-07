@@ -127,6 +127,7 @@ gulp.task('scripts', function () {
 });
 gulp.task('watch:scripts', ['scripts'], function (done) {
     // revVersion();        // <--- for Laravel elixir helper
+    browserSync.reload();
     done();
 });
 gulp.task('html', function () {

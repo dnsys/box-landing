@@ -195,21 +195,21 @@ class Application{
         }
         tablinks = document.getElementsByClassName("photo-warehouses__tabs-select");
         let activeTabContent = document.querySelector(".photo-warehouses__tabs-select option:checked").value;
-        console.log(activeTabContent);
         document.getElementById(activeTabContent).style.display="block";
-        [].forEach.call(tablinks, tab => {
-            tab.addEventListener('change', () =>
-                this._changeTabMobile(tab, tabcontent, tablinks))
-        });
+        $(tablinks).on('change', (event) => {
+            this._changeTabMobile(event.currentTarget,tabcontent,tablinks);
+        })
 
     }
 
     _changeTabMobile(tab, tabcontent, tablinks){
+        /*console.log(tab);
+        console.log(tabcontent);*/
         for (let i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
         }
         let idTabContent = tab.value;
-        console.log(idTabContent);
+        //console.log(idTabContent);
         document.getElementById(idTabContent).style.display='block';
     }
 

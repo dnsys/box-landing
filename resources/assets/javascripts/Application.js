@@ -23,6 +23,7 @@ class Application{
             new WareHousesSlider();
             new WareHousesSliderMobile();
             new MobileReviewsSlider();
+            this._openBurger();
             this._playPopupVideo();
             this._initMap();
             this._calculatorInit();
@@ -240,6 +241,15 @@ class Application{
         let $select = $('.custom-select');
         $select.select2({
             width: '100%'
+        });
+    }
+
+    _openBurger() {
+        $('.header__burger').on('click', function(){
+            let $this = $(this);
+            let $mobileMenu = $('.header__nav--mobile');
+            $this.toggleClass('open');
+            $mobileMenu.toggleClass('open animated fadeInBottom');
         });
     }
 }
